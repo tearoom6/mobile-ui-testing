@@ -1,11 +1,11 @@
-danger.import_dangerfile(path: './Dangerfiles/Dangerfile-common')
-danger.import_dangerfile(path: './Dangerfiles/Dangerfile-github')
+danger.import_dangerfile(path: "#{File.dirname(__FILE__)}/Dangerfiles/Dangerfile-common")
+danger.import_dangerfile(path: "#{File.dirname(__FILE__)}/Dangerfiles/Dangerfile-github")
 
 #
 # Check pull request description.
 #
 template = {}
-File.open('../.github/PULL_REQUEST_TEMPLATE.md') do |file|
+File.open("#{File.dirname(__FILE__)}/../.github/PULL_REQUEST_TEMPLATE.md") do |file|
   template = separate(file)
 end
 
