@@ -1,5 +1,5 @@
-danger.import_dangerfile(path: "#{File.dirname(__FILE__)}/Dangerfiles/common/Dangerfile")
-danger.import_dangerfile(path: "#{File.dirname(__FILE__)}/Dangerfiles/github/Dangerfile")
+danger.import_dangerfile(path: "#{File.dirname(__FILE__)}/Dangerfiles/common")
+danger.import_dangerfile(path: "#{File.dirname(__FILE__)}/Dangerfiles/github")
 
 #
 # Check pull request description.
