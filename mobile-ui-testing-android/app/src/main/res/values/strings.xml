@@ -1,3 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">mobile-ui-testing-android</string>
+    <string name="btn_clear">Clear</string>
+    <string name="btn_close">Close</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_logout">Logout</string>
+    <string name="btn_new">Create</string>
+    <string name="btn_register">Sign Up</string>
+    <string name="btn_save">Save</string>
+    <string name="error_other_login_error">Login failed</string>
+    <string name="error_other_register_error">Signup failed</string>
+    <string name="error_required">Required</string>
+    <string name="error_used_email">Email is already in used</string>
+    <string name="failed_login">Email or password is incorrect</string>
+    <string name="hint_mail">E-mail</string>
+    <string name="hint_nickname">Nickname</string>
+    <string name="hint_note_content">Content</string>
+    <string name="hint_note_title">Title</string>
+    <string name="hint_password">Password</string>
+    <string name="invalid_email">Invalid Email</string>
+    <string name="invalid_password">At Least 6 Characters</string>
+    <string name="loading">Loading…</string>
+    <string name="tab_note">Note</string>
+    <string name="tab_user">User</string>
+    <string name="txt_do_login">Please login first</string>
+    <string name="txt_register_date">Register Date</string>
+    <string name="txt_user">User Name</string>
 </resources>

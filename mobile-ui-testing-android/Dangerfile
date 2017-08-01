@@ -1,11 +1,11 @@
-danger.import_dangerfile(path: './Dangerfiles/Dangerfile-common')
-danger.import_dangerfile(path: './Dangerfiles/Dangerfile-github')
+danger.import_dangerfile(path: "#{File.dirname(__FILE__)}/Dangerfiles/common")
+danger.import_dangerfile(path: "#{File.dirname(__FILE__)}/Dangerfiles/github")
 
 #
 # Check pull request description.
 #
 template = {}
-File.open('../.github/PULL_REQUEST_TEMPLATE.md') do |file|
+File.open("#{File.dirname(__FILE__)}/../.github/PULL_REQUEST_TEMPLATE.md") do |file|
   template = separate(file)
 end
 
@@ -72,5 +72,5 @@ if has_errors? || has_warnings?
 else
   markdown('PR content clears all checks.')
   markdown('Please review it!')
-  add_label 'In Review', '0052cc'
+  add_label 'in review', '0052cc'
 end

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- User Status -->
+    <LinearLayout
+        android:id="@+id/auth_linear_overall"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/layer_margin"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/auth_label_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/layer_margin"
+                android:layout_marginLeft="@dimen/layer_margin"
+                android:layout_marginRight="@dimen/layer_margin"
+                android:layout_marginTop="60dp"
+                android:text="@string/txt_user"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/auth_label_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layer_margin"
+                android:text="@string/txt_register_date"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/auth_button_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layer_margin"
+            android:text="@string/btn_logout" />
+
+    </LinearLayout>
+
+    <!-- Login -->
+    <LinearLayout
+        android:id="@+id/auth_linear_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false"
+        android:orientation="vertical"
+        android:padding="@dimen/layer_margin">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/auth_input_loginEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/layer_margin"
+                    android:layout_marginLeft="@dimen/layer_margin"
+                    android:layout_marginRight="@dimen/layer_margin"
+                    android:layout_marginTop="60dp"
+                    android:ems="10"
+                    android:hint="@string/hint_mail"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="40" />
+
+                <EditText
+                    android:id="@+id/auth_input_loginPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layer_margin"
+                    android:elevation="20dp"
+                    android:ems="10"
+                    android:hint="@string/hint_password"
+                    android:inputType="textPassword"
+                    android:maxLength="20"
+                    tools:targetApi="lollipop" />
+
+                <TextView
+                    android:id="@+id/auth_label_loginErrors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layer_margin"
+                    android:textColor="@color/red"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/auth_button_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layer_margin"
+                    android:text="@string/btn_login" />
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/auth_button_openRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layer_margin"
+                android:elevation="24dp"
+                android:text="@string/btn_register"
+                tools:targetApi="lollipop" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- User Register -->
+    <LinearLayout
+        android:id="@+id/auth_linear_register"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/layer_margin"
+        android:visibility="invisible">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/auth_input_registerNickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/layer_margin"
+                    android:layout_marginLeft="@dimen/layer_margin"
+                    android:layout_marginRight="@dimen/layer_margin"
+                    android:layout_marginTop="60dp"
+                    android:ems="10"
+                    android:hint="@string/hint_nickname"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:maxLines="1" />
+
+                <EditText
+                    android:id="@+id/auth_input_registerEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layer_margin"
+                    android:ems="10"
+                    android:hint="@string/hint_mail"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="40"
+                    android:maxLines="1" />
+
+                <EditText
+                    android:id="@+id/auth_input_registerPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layer_margin"
+                    android:ems="10"
+                    android:hint="@string/hint_password"
+                    android:inputType="textPassword"
+                    android:maxLength="20"
+                    android:maxLines="1" />
+
+                <TextView
+                    android:id="@+id/auth_label_registerErrors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layer_margin"
+                    android:elevation="24dp"
+                    android:textColor="@color/red"
+                    android:textSize="18sp"
+                    tools:targetApi="lollipop" />
+
+                <Button
+                    android:id="@+id/auth_button_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layer_margin"
+                    android:text="@string/btn_register" />
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/auth_button_openLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_margin="@dimen/layer_margin"
+                android:text="@string/btn_login" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

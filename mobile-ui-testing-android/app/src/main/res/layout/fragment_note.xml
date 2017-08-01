@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/note_linear_overall"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingEnd="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_vertical_margin">
+
+    <!-- Form -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line_frame"
+        android:orientation="vertical">
+
+        <biz.tearoom6.mobile_ui_testing_android.widgets.TextInputLayoutAlignRight
+            android:id="@+id/note_inputLayout_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/layer_margin"
+            android:layout_marginTop="@dimen/layer_margin"
+            android:gravity="end"
+            android:textAlignment="viewEnd"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            app:errorTextAppearance="@style/TextInputLayoutStyle.ErrorTextStyle"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false">
+
+            <biz.tearoom6.mobile_ui_testing_android.widgets.EditTextWithIcon
+                android:id="@+id/note_input_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/hint_note_title"
+                android:textColorHint="@android:color/darker_gray"
+                android:inputType="text"
+                android:maxLines="1" />
+        </biz.tearoom6.mobile_ui_testing_android.widgets.TextInputLayoutAlignRight>
+
+        <EditText
+            android:id="@+id/note_input_content"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:ems="10"
+            android:gravity="top|left"
+            android:hint="@string/hint_note_content"
+            android:textColorHint="@android:color/darker_gray"
+            android:inputType="textMultiLine"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+
+    <!-- Footer-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_margin">
+
+        <Button
+            android:id="@+id/note_button_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/btn_close" />
+
+        <Button
+            android:id="@+id/note_button_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/btn_clear" />
+
+        <Button
+            android:id="@+id/note_button_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="false"
+            android:text="@string/btn_save"
+            tools:ignore="RelativeOverlap,RtlHardcoded" />
+
+    </RelativeLayout>
+
+</LinearLayout>
