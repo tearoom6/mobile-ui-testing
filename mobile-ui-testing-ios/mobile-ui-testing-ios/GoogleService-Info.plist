@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>763469590436-8lg1embpb2v5coihq1od72nhd8ah4f01.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.763469590436-8lg1embpb2v5coihq1od72nhd8ah4f01</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAUg51qeDXPHH7h9zyrkYWNENKEDqFgMUo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>763469590436</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>biz.tearoom6.mobile-ui-testing-ios</string>
+	<key>PROJECT_ID</key>
+	<string>mobile-ui-testing</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mobile-ui-testing.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:763469590436:ios:e07d6ef960112dc5</string>
+	<key>DATABASE_URL</key>
+	<string>https://mobile-ui-testing.firebaseio.com</string>
+</dict>
+</plist>
