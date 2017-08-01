@@ -1,0 +1,76 @@
+danger.import_dangerfile(path: './Dangerfiles/Dangerfile-common')
+danger.import_dangerfile(path: './Dangerfiles/Dangerfile-github')
+
+#
+# Check pull request description.
+#
+template = {}
+File.open('../.github/PULL_REQUEST_TEMPLATE.md') do |file|
+  template = separate(file)
+end
+
+pr = separate(github.pr_body)
+
+# Compare with PULL_REQUEST_TEMPLATE.
+need_keys = template.keys.reject { |key| pr.keys.include? key }
+unless need_keys.empty?
+  fail("#{need_keys.join(', ')} is missing. Please use PR template.", sticky: true)
+end
+
+# Check different from PULL_REQUEST_TEMPLATE.
+template.each do |header, val|
+  fail(header + ' is same as template.', sticky: true) if val == pr[header]
+end
+
+# Check all TODO tasks are completed.
+pr.each do |header, section|
+  unless header.include? 'TODO'
+    next
+  end
+  section.each_line do |line|
+    if line =~ /\[\s\]/
+      fail('TODO is remaining: ' + line.gsub(/\[.*\]\s/, ''), sticky: true)
+    end
+  end
+end
+
+#
+# Check commit status.
+#
+files    = (git.added_files + git.modified_files)
+contexts = github.statuses.map {|status| status[:context]}
+labels   = github.pr_labels
+
+# Execute build & ui_test if something is modified below src/main.
+if files.any? {|file| file =~ /src\/main\/.*/ }
+  fail 'build must be executed if you modified source codes.' unless contexts.include?('build') || labels.include?('build ok') || labels.include?('build skip')
+  fail 'ui_test must be executed if you modified source codes.' unless contexts.include?('ui_test') || labels.include?('test ok') || labels.include?('test skip')
+end
+
+# Execute ui_test if something is modified below src/androidTest.
+if files.any? {|file| file =~ /src\/androidTest\/.*/ }
+  fail 'ui_test must be executed if you modified test codes.'  unless contexts.include?('ui_test') || labels.include?('test ok') || labels.include?('test skip')
+end
+
+# Raise error if build or ui_test failed.
+statuses.each do |status|
+  next unless status[:context] == 'build' || status[:context] == 'ui_test'
+  label = status[:context].gsub(/ui_/, '')
+  if status[:state] == 'success'
+    add_label "#{label} ok", '0e8a16'
+    remove_labels "#{label} failed" if labels.include? "#{label} failed"
+  else
+    remove_labels "#{label} ok" if labels.include? "#{label} ok"
+    add_label "#{label} failed", 'd93f0b'
+    fail "#{status[:context]} failed."
+  end
+end
+
+# Send mensions if no errors or warnings found.
+if has_errors? || has_warnings?
+  markdown('Check PR content & send PR again.')
+else
+  markdown('PR content clears all checks.')
+  markdown('Please review it!')
+  add_label 'In Review', '0052cc'
+end

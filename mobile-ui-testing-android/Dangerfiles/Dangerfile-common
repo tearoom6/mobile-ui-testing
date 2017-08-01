@@ -1,0 +1,23 @@
+#
+# Check if Danger has errors.
+# @return [boolean]
+#
+def has_errors?
+  status_report
+    .select { |k, _| k.to_s == 'errors' }
+    .map { |_, v| v }
+    .flatten
+    .count > 0
+end
+
+#
+# Check if Danger has warnings.
+# @return [boolean]
+#
+def has_warnings?
+  status_report
+    .select { |k, _| k.to_s == 'warnings' }
+    .map { |_, v| v }
+    .flatten
+    .count > 0
+end

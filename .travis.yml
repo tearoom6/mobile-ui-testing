@@ -1,0 +1,11 @@
+sudo: false
+language: ruby
+rvm:
+  - 2.4.1
+env:
+  - TARGET_DIR=mobile-ui-testing-android
+install:
+  - cd $TARGET_DIR && bundle install
+before_script:
+  - cd $TARGET_DIR && bundle exec danger
+

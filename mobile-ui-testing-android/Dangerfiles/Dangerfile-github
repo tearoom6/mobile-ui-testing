@@ -1,0 +1,66 @@
+#
+# Separate pull request content by header.
+# @return [[String]]
+#
+def separate(pr)
+  separated = {}
+  current_header = ''
+  pr.each_line do |line|
+    line = line.gsub(/(\r\n|\r|\n)/, "\n")
+    if (header = line.match(/^\#+\s*(.+)/))
+      current_header = header[1]
+      next
+    end
+    separated[current_header] ||= ''
+    separated[current_header] << line
+  end
+  separated
+end
+
+#
+# Add label.
+# @param [String] label
+# @param [String] color
+# @return [void]
+#
+def add_label(label, color = 'ffffff')
+  @repo ||= github.pr_json.base.repo.full_name
+  @number ||= github.pr_json.number
+  github.api.update_label(@repo, label, {:color => color})
+  github.api.add_labels_to_an_issue(@repo, @number, Array(label))
+
+end
+
+#
+# Remove labels.
+# @param [[String]] labels
+# @return [void]
+#
+def remove_labels(labels)
+  @repo ||= github.pr_json.base.repo.full_name
+  @number ||= github.pr_json.number
+  Array(labels).each do |label|
+    github.api.remove_label(@repo, @number, label)
+  end
+end
+
+#
+# Get commit status of HEAD.
+# @return [[Hash]]
+#
+def statuses
+  @repo ||= github.pr_json.base.repo.full_name
+  @sha  ||= github.head_commit
+  statuses = {}
+  github.api.statuses(@repo, @sha).each do |status|
+    statuses[status.context] ||= []
+    statuses[status.context].push({
+                                      context: status.context,
+                                      state: status.state,
+                                      date: status.updated_at
+                                  })
+  end
+  statuses.map {|_, val|
+    val.sort{|a, b| b[:date] <=> a[:date] }[0]
+  }
+end
