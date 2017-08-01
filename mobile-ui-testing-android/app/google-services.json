@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "763469590436",
+    "firebase_url": "https://mobile-ui-testing.firebaseio.com",
+    "project_id": "mobile-ui-testing",
+    "storage_bucket": "mobile-ui-testing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763469590436:android:fe50c6c3c0449ad5",
+        "android_client_info": {
+          "package_name": "biz.tearoom6.mobile_ui_testing_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763469590436-fqfutev9pd1ivveaqa5ku2obaki4hcc5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYKsBiuQ92Ej1nrax539i2Dc_P_wA7nQs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
