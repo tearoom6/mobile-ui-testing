@@ -8,4 +8,5 @@ install:
   - cd $TRAVIS_BUILD_DIR/$TARGET_DIR && bundle install
 before_script:
   - cd $TRAVIS_BUILD_DIR/$TARGET_DIR && bundle exec fastlane android review
+script: skip
 
