@@ -1,0 +1,20 @@
+platform :ios, '9.3'
+
+target 'mobile-ui-testing-ios' do
+  use_frameworks!
+
+  # Pods for mobile-ui-testing-ios
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+
+  target 'mobile-ui-testing-iosTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'mobile-ui-testing-iosUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
