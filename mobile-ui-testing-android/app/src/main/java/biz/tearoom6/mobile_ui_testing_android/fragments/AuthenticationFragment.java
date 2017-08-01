@@ -282,6 +282,8 @@ public class AuthenticationFragment extends BaseFragment {
     private boolean validateLoginForm() {
         final EditText[] requiredTexts = new EditText[] { mLoginEmail, mLoginPassword };
 
+        boolean valid = true;
+
         // Clear errors.
         for (EditText editText : requiredTexts) {
             editText.setError(null);
@@ -291,11 +293,13 @@ public class AuthenticationFragment extends BaseFragment {
         for (EditText editText : requiredTexts) {
             if (TextUtils.isEmpty(editText.getText())) {
                 editText.setError(strEmpty);
-                return false;
+                valid = false;
             }
         }
 
-        boolean valid = true;
+        if (!valid) {
+            return valid;
+        }
 
         // Check email.
         if (!isEmailValid(mLoginEmail.getText())) {
@@ -315,6 +319,8 @@ public class AuthenticationFragment extends BaseFragment {
     private boolean validateRegisterForm() {
         final EditText[] requiredTexts = new EditText[] { mSignupNickname, mSignupEmail, mSignupPassword };
 
+        boolean valid = true;
+
         // Clear errors.
         for (EditText editText : requiredTexts) {
             editText.setError(null);
@@ -324,11 +330,13 @@ public class AuthenticationFragment extends BaseFragment {
         for (EditText editText : requiredTexts) {
             if (TextUtils.isEmpty(editText.getText())) {
                 editText.setError(strEmpty);
-                return false;
+                valid = false;
             }
         }
 
-        boolean valid = true;
+        if (!valid) {
+            return valid;
+        }
 
         // Check email.
         if (!isEmailValid(mSignupEmail.getText())) {
