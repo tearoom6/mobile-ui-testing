@@ -5,7 +5,7 @@ rvm:
 env:
   - TARGET_DIR=mobile-ui-testing-android
 install:
-  - cd $TARGET_DIR && bundle install
+  - cd $TRAVIS_BUILD_DIR/$TARGET_DIR && bundle install
 before_script:
-  - cd $TARGET_DIR && bundle exec fastlane android review
+  - cd $TRAVIS_BUILD_DIR/$TARGET_DIR && bundle exec fastlane android review
 
