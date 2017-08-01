@@ -1,0 +1,121 @@
+fastlane_version "2.50.0"
+
+default_platform :android
+
+platform :android do
+  before_all do
+    lane_context[:package_name] = "biz.tearoom6.mobile_ui_testing_android"
+    lane_context[:apk_name]     = "mobile-ui-testing-android"
+  end
+
+  ######################
+  # app build lanes
+  ######################
+
+  desc "build apk"
+  lane :build do
+    gradle(task: "build")
+  end
+
+  desc "build for testing"
+  lane :build_for_testing do
+    gradle(task: "assembleDebug")
+    gradle(task: "assembleDebugAndroidTest")
+  end
+
+  ######################
+  # app test lanes
+  ######################
+
+  desc "execute UI tests"
+  lane :ui_test do
+    gradle(task: "connectedAndroidTest")
+  end
+
+  desc "execute UI tests without building"
+  lane :ui_test_without_building do |options|
+
+    serial  = options[:serial]
+
+    package  = lane_context[:package_name]
+    apk_name = lane_context[:apk_name]
+
+    ## Re-install Test-Target app
+    uninstall(
+      package: package,
+      serial: serial
+    )
+    install(
+      apk: "app/build/outputs/apk/#{apk_name}.apk",
+      serial: serial
+    )
+    ## Re-install Test-Runner app
+    uninstall(
+      package: "#{package}.test",
+      serial: serial
+    )
+    install(
+      apk: "app/build/outputs/apk/#{apk_name}-androidTest.apk",
+      serial: serial
+    )
+    ## Run test
+    if options[:class]
+      adb(
+        command: "shell am instrument -r -w -e class #{package}.#{options[:class]} -e debug false #{package}.test/android.support.test.runner.AndroidJUnitRunner 2>&1 | tee Test-#{serial}-#{package}-#{options[:class]}.log",
+        serial: serial
+      )
+    elsif package
+      adb(
+        command: "shell am instrument -r -w -e package #{package} -e debug false #{package}.test/android.support.test.runner.AndroidJUnitRunner 2>&1 | tee Test-#{serial}-#{package}.log",
+        serial: serial
+      )
+    end
+  end
+
+  ######################
+  # util lanes
+  ######################
+
+  desc "install apk"
+  private_lane :install do |options|
+
+    apk    = options[:apk]
+    serial = options[:serial].nil? ? {} : { serial: options[:serial] }
+
+    params = {
+      command: "install #{apk}",
+    }.merge(serial)
+
+    adb(params)
+  end
+
+  desc "uninstall apk"
+  private_lane :uninstall do |options|
+
+    package = options[:package]
+    serial  = options[:serial].nil? ? {} : { serial: options[:serial] }
+
+    params = {
+      command: "uninstall #{package}"
+    }.merge(serial)
+
+    adb(params)
+  end
+
+  ######################
+  # Continuous Integration lanes
+  ######################
+
+  desc "review by danger"
+  lane :review do
+    if is_ci?
+      danger(
+        new_comment: true,
+        use_bundle_exec: false
+      )
+    else
+      UI.error("Runs only in CI env.")
+    end
+  end
+
+end
