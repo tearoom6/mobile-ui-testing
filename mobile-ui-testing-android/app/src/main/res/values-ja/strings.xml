@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">mobile-ui-testing-android</string>
+    <string name="btn_clear">クリア</string>
+    <string name="btn_close">閉じる</string>
+    <string name="btn_login">ログイン</string>
+    <string name="btn_logout">ログアウト</string>
+    <string name="btn_new">作成</string>
+    <string name="btn_register">ユーザ登録</string>
+    <string name="btn_save">保存</string>
+    <string name="error_other_login_error">ログインに失敗しました</string>
+    <string name="error_other_register_error">ユーザ登録に失敗しました</string>
+    <string name="error_required">必要</string>
+    <string name="error_used_email">既にメールアドレスは使用されています</string>
+    <string name="failed_login">メールアドレスまたはパスワードが間違っています</string>
+    <string name="hint_mail">メールアドレス</string>
+    <string name="hint_nickname">ニックネーム</string>
+    <string name="hint_note_content">本文</string>
+    <string name="hint_note_title">タイトル</string>
+    <string name="hint_password">パスワード</string>
+    <string name="invalid_email">無効なメールアドレス</string>
+    <string name="invalid_password">6文字以上にしてください</string>
+    <string name="loading">ロード中…</string>
+    <string name="tab_note">Note</string>
+    <string name="tab_user">User</string>
+    <string name="txt_do_login">ログインしてください</string>
+    <string name="txt_register_date">登録日時</string>
+    <string name="txt_user">ユーザ名</string>
+</resources>

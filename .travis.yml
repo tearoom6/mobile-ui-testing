@@ -7,5 +7,5 @@ env:
 install:
   - cd $TARGET_DIR && bundle install
 before_script:
-  - cd $TARGET_DIR && bundle exec danger
+  - cd $TARGET_DIR && bundle exec fastlane android review
 

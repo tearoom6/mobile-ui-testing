@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/note_frame_overall"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Not Login Status -->
+    <LinearLayout
+        android:id="@+id/notes_linear_unauthorized"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/layer_margin"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:id="@+id/notes_label_unauthorized"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/layer_margin"
+                android:layout_marginLeft="@dimen/layer_margin"
+                android:layout_marginRight="@dimen/layer_margin"
+                android:layout_marginTop="60dp"
+                android:text="@string/txt_do_login"
+                android:textAlignment="viewStart"
+                android:textColor="@color/red"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/notes_button_redirectToLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/layer_margin"
+                android:text="@string/btn_login" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- Login Status -->
+    <LinearLayout
+        android:id="@+id/notes_linear_authorized"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/notes_list_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/layer_margin"
+            android:layout_weight="1"
+            android:isScrollContainer="true"
+            android:paddingLeft="@dimen/item_margin"
+            android:transcriptMode="normal"
+            tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+        <include
+            android:id="@+id/notes_include_note"
+            layout="@layout/fragment_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/notes_button_create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:text="@string/btn_new" />
+
+    </LinearLayout>
+
+
+</FrameLayout>
