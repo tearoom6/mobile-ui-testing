@@ -3,10 +3,10 @@ language: ruby
 rvm:
   - 2.4.1
 env:
-  - TARGET_DIR=mobile-ui-testing-android
-install:
-  - cd $TRAVIS_BUILD_DIR/$TARGET_DIR && bundle install
+  - TARGET_DANGERFILE="mobile-ui-testing-android/Dangerfile"
+cache:
+  - bundler
 before_script:
-  - cd $TRAVIS_BUILD_DIR/$TARGET_DIR && bundle exec fastlane android review
+  - bundle exec danger --dangerfile=$TARGET_DANGERFILE
 script: skip
 
