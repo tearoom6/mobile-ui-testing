@@ -72,5 +72,5 @@ if has_errors? || has_warnings?
 else
   markdown('PR content clears all checks.')
   markdown('Please review it!')
-  add_label 'In Review', '0052cc'
+  add_label 'in review', '0052cc'
 end
