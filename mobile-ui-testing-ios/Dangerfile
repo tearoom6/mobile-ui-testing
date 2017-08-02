@@ -41,21 +41,21 @@ files    = (git.added_files + git.modified_files)
 contexts = github.statuses.map {|status| status[:context]}
 labels   = github.pr_labels
 
-# Execute build & ui_test if something is modified below src/main.
-if files.any? {|file| file =~ /src\/main\/.*/ }
+# Execute build & simulator_test if something is modified below mobile-ui-testing-ios.
+if files.any? {|file| file =~ /mobile-ui-testing-ios\/.*/ }
   fail 'build must be executed if you modified source codes.' unless contexts.include?('build') || labels.include?('build ok') || labels.include?('build skip')
-  fail 'ui_test must be executed if you modified source codes.' unless contexts.include?('ui_test') || labels.include?('test ok') || labels.include?('test skip')
+  fail 'simulator_test must be executed if you modified source codes.' unless contexts.include?('simulator_test') || labels.include?('test ok') || labels.include?('test skip')
 end
 
-# Execute ui_test if something is modified below src/androidTest.
-if files.any? {|file| file =~ /src\/androidTest\/.*/ }
-  fail 'ui_test must be executed if you modified test codes.'  unless contexts.include?('ui_test') || labels.include?('test ok') || labels.include?('test skip')
+# Execute simulator_test if something is modified below mobile-ui-testing-ios.*Tests.
+if files.any? {|file| file =~ /mobile-ui-testing-ios.*Tests\/.*/ }
+  fail 'simulator_test must be executed if you modified test codes.'  unless contexts.include?('simulator_test') || labels.include?('test ok') || labels.include?('test skip')
 end
 
-# Raise error if build or ui_test failed.
+# Raise error if build or simulator_test failed.
 statuses.each do |status|
-  next unless status[:context] == 'build' || status[:context] == 'ui_test'
-  label = status[:context].gsub(/ui_/, '')
+  next unless status[:context] == 'build' || status[:context] == 'simulator_test'
+  label = status[:context].gsub(/simulator_/, '')
   if status[:state] == 'success'
     add_label "#{label} ok", '0e8a16'
     remove_labels "#{label} failed" if labels.include? "#{label} failed"

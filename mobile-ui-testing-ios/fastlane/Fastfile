@@ -1,0 +1,134 @@
+fastlane_version "2.50.0"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    lane_context[:derived_data_path] = 'xcuitest_output'
+    lane_context[:main_scheme] = 'mobile-ui-testing-ios'
+    lane_context[:uitest_scheme] = 'mobile-ui-testing-iosUITests'
+    lane_context[:workspace] = 'mobile-ui-testing-ios.xcworkspace'
+  end
+
+  ######################
+  # setup lanes
+  ######################
+
+  desc 'Import libraries'
+  lane :setup_lib do
+    cocoapods(
+      use_bundle_exec: true
+    )
+    carthage(
+      platform: "iOS"
+    )
+  end
+
+  ######################
+  # build lanes
+  ######################
+
+  desc 'build ipa file'
+  lane :build do
+    setup_lib
+
+    gym(
+      scheme: lane_context[:main_scheme],
+      configuration: 'Debug',
+      export_method: 'development',
+      clean: true,
+      output_directory: 'apps',
+      output_name: 'mobile-ui-testing-ios.ipa'
+    )
+  end
+
+  desc "build for iPhone Simulator"
+  lane :simulator_build do
+    setup_lib
+
+    xcodebuild(
+      workspace: lane_context[:workspace],
+      scheme: lane_context[:main_scheme],
+      configuration: "Debug",
+      destination: 'platform=iOS Simulator,name=iPhone 5s,OS=latest',
+      derivedDataPath: 'fastlane/build_output'
+    )
+
+    sh("cp -r ./build_output/Build/Products/Debug-iphonesimulator/mobile-ui-testing-ios.app ../apps/mobile-ui-testing-ios.app")
+  end
+
+  desc "build for XCUITest"
+  lane :build_for_testing do |options|
+    setup_lib
+
+    destination       = options[:destination] || 'platform=iOS Simulator,name=iPhone 5s,OS=latest'
+    derived_data_path = lane_context[:derived_data_path]
+    configuration     = options[:configuration].nil? ? {} : { configuration: options[:configuration] }
+
+    params = {
+      scheme: lane_context[:uitest_scheme],
+      destination: destination,
+      derived_data_path: derived_data_path,
+      build_for_testing: true,
+      workspace: lane_context[:workspace],
+    }.merge(configuration)
+
+    scan(params)
+  end
+
+  ######################
+  # auto test lanes
+  ######################
+
+  desc 'test by simulator'
+  lane :simulator_test do
+    setup_lib
+
+    scan(
+      sdk: 'iphonesimulator',
+      scheme: lane_context[:uitest_scheme],
+      clean: true,
+      output_directory: 'fastlane/test_report',
+      output_types: 'html,junit',
+      derived_data_path: lane_context[:derived_data_path]
+    )
+  end
+
+  desc "test by specifying target & test runner"
+  lane :ui_test_without_building do |options|
+    device = options[:device] || 'iPhone 7 (10.3)'
+    test_target = options[:target].nil? ? {} : { only_testing: "mobile-ui-testing-iosUITests/#{options[:target]}" }
+
+    params = {
+      xctestrun: "#{lane_context[:derived_data_path]}/Build/Products/mobile-ui-testing-iosUITests_iphonesimulator10.3-x86_64.xctestrun",
+      device: device,
+      scheme: lane_context[:uitest_scheme],
+      buildlog_path: 'fastlane/test_report/',
+      output_directory: 'fastlane/test_report/',
+      output_types: 'html,junit',
+      derived_data_path: lane_context[:derived_data_path],
+    }.merge(test_target)
+
+    scan(
+      params
+    )
+
+    sh "mv ./test_report/report.junit ./test_report/report.xml"
+  end
+
+  ######################
+  # Continuous Integration lanes
+  ######################
+
+  desc "review by danger"
+  lane :review do
+    if is_ci?
+      danger(
+        new_comment: true,
+        use_bundle_exec: false
+      )
+    else
+      UI.error("CI環境でのみ動作します")
+    end
+  end
+end
