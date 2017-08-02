@@ -7,10 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032B9DC61F31D14E003E0ED8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03A248E01F31A25D007A7B51 /* Localizable.strings */; };
+		032B9DC71F31D14F003E0ED8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03A248E01F31A25D007A7B51 /* Localizable.strings */; };
 		033AB33D1F310B2D00BA737D /* PagingMenuController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 033AB33C1F310B2D00BA737D /* PagingMenuController.framework */; };
 		033AB3401F310C4300BA737D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 033AB33F1F310C4300BA737D /* GoogleService-Info.plist */; };
 		033AB3411F310C4300BA737D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 033AB33F1F310C4300BA737D /* GoogleService-Info.plist */; };
 		033AB3421F310C4300BA737D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 033AB33F1F310C4300BA737D /* GoogleService-Info.plist */; };
+		033AF4841F31BCFD00DD0117 /* UserLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033AF4831F31BCFD00DD0117 /* UserLoginTests.swift */; };
+		033AF4861F31BD1800DD0117 /* UserRegisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033AF4851F31BD1800DD0117 /* UserRegisterTests.swift */; };
+		033AF4881F31BD2400DD0117 /* NoteLoginStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033AF4871F31BD2400DD0117 /* NoteLoginStateTests.swift */; };
+		033AF48A1F31BD2D00DD0117 /* NoteLogoutStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033AF4891F31BD2D00DD0117 /* NoteLogoutStateTests.swift */; };
+		033AF48C1F31BD3900DD0117 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033AF48B1F31BD3900DD0117 /* User.swift */; };
+		033AF48E1F31BD4400DD0117 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033AF48D1F31BD4400DD0117 /* Constants.swift */; };
+		033AF4901F31BD4D00DD0117 /* ElementAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033AF48F1F31BD4D00DD0117 /* ElementAccessor.swift */; };
+		033AF4921F31BD6500DD0117 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033AF4911F31BD6500DD0117 /* Functions.swift */; };
+		033AF4941F31BD6E00DD0117 /* XCTestCase+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033AF4931F31BD6E00DD0117 /* XCTestCase+extension.swift */; };
+		033AF4961F31BD7700DD0117 /* XCTestCase+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033AF4951F31BD7700DD0117 /* XCTestCase+helper.swift */; };
+		033AF4981F31BD8000DD0117 /* XCUIElement+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033AF4971F31BD8000DD0117 /* XCUIElement+extension.swift */; };
+		039893011F31BFBB000A2EF1 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 039893001F31BFBB000A2EF1 /* data.plist */; };
 		03A248B31F31942A007A7B51 /* Auth+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A248B21F31942A007A7B51 /* Auth+extension.swift */; };
 		03A248B51F319434007A7B51 /* Notification+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A248B41F319434007A7B51 /* Notification+extension.swift */; };
 		03A248B71F31943E007A7B51 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A248B61F31943E007A7B51 /* UILabel+extension.swift */; };
@@ -38,7 +52,6 @@
 		03D44E161F31028C00A8CA74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03D44E151F31028C00A8CA74 /* Assets.xcassets */; };
 		03D44E191F31028C00A8CA74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D44E171F31028C00A8CA74 /* LaunchScreen.storyboard */; };
 		03D44E241F31028C00A8CA74 /* mobile_ui_testing_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D44E231F31028C00A8CA74 /* mobile_ui_testing_iosTests.swift */; };
-		03D44E2F1F31028C00A8CA74 /* mobile_ui_testing_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D44E2E1F31028C00A8CA74 /* mobile_ui_testing_iosUITests.swift */; };
 		4E082EA5DB827512A2BD0CDF /* Pods_mobile_ui_testing_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4A5D8B80F582F22C969F3C /* Pods_mobile_ui_testing_iosUITests.framework */; };
 		50D76CE07A9DC49F059D2F27 /* Pods_mobile_ui_testing_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF7AB767B46B829CCF9515E /* Pods_mobile_ui_testing_ios.framework */; };
 		B6B02EB95982C4F69BDD69C2 /* Pods_mobile_ui_testing_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3D7C5FEFE40BC9FEEE478A /* Pods_mobile_ui_testing_iosTests.framework */; };
@@ -62,8 +75,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		032B9DC81F31D354003E0ED8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		033AB33C1F310B2D00BA737D /* PagingMenuController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PagingMenuController.framework; path = Carthage/Build/iOS/PagingMenuController.framework; sourceTree = "<group>"; };
 		033AB33F1F310C4300BA737D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		033AF4831F31BCFD00DD0117 /* UserLoginTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginTests.swift; sourceTree = "<group>"; };
+		033AF4851F31BD1800DD0117 /* UserRegisterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterTests.swift; sourceTree = "<group>"; };
+		033AF4871F31BD2400DD0117 /* NoteLoginStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteLoginStateTests.swift; sourceTree = "<group>"; };
+		033AF4891F31BD2D00DD0117 /* NoteLogoutStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteLogoutStateTests.swift; sourceTree = "<group>"; };
+		033AF48B1F31BD3900DD0117 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		033AF48D1F31BD4400DD0117 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		033AF48F1F31BD4D00DD0117 /* ElementAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementAccessor.swift; sourceTree = "<group>"; };
+		033AF4911F31BD6500DD0117 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		033AF4931F31BD6E00DD0117 /* XCTestCase+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+extension.swift"; sourceTree = "<group>"; };
+		033AF4951F31BD7700DD0117 /* XCTestCase+helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+helper.swift"; sourceTree = "<group>"; };
+		033AF4971F31BD8000DD0117 /* XCUIElement+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+extension.swift"; sourceTree = "<group>"; };
+		039893001F31BFBB000A2EF1 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 		03A248B21F31942A007A7B51 /* Auth+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Auth+extension.swift"; sourceTree = "<group>"; };
 		03A248B41F319434007A7B51 /* Notification+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+extension.swift"; sourceTree = "<group>"; };
 		03A248B61F31943E007A7B51 /* UILabel+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
@@ -97,7 +123,6 @@
 		03D44E231F31028C00A8CA74 /* mobile_ui_testing_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobile_ui_testing_iosTests.swift; sourceTree = "<group>"; };
 		03D44E251F31028C00A8CA74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03D44E2A1F31028C00A8CA74 /* mobile-ui-testing-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-ui-testing-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		03D44E2E1F31028C00A8CA74 /* mobile_ui_testing_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobile_ui_testing_iosUITests.swift; sourceTree = "<group>"; };
 		03D44E301F31028C00A8CA74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DF7AB767B46B829CCF9515E /* Pods_mobile_ui_testing_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_ui_testing_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F3D7C5FEFE40BC9FEEE478A /* Pods_mobile_ui_testing_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_ui_testing_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +164,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		033AF47F1F31BCD500DD0117 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				033AF48D1F31BD4400DD0117 /* Constants.swift */,
+				033AF48F1F31BD4D00DD0117 /* ElementAccessor.swift */,
+				033AF4911F31BD6500DD0117 /* Functions.swift */,
+				033AF4931F31BD6E00DD0117 /* XCTestCase+extension.swift */,
+				033AF4951F31BD7700DD0117 /* XCTestCase+helper.swift */,
+				033AF4971F31BD8000DD0117 /* XCUIElement+extension.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		033AF4801F31BCE000DD0117 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				033AF48B1F31BD3900DD0117 /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		033AF4811F31BCE800DD0117 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				033AF4871F31BD2400DD0117 /* NoteLoginStateTests.swift */,
+				033AF4891F31BD2D00DD0117 /* NoteLogoutStateTests.swift */,
+			);
+			name = Note;
+			sourceTree = "<group>";
+		};
+		033AF4821F31BCF000DD0117 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				033AF4831F31BCFD00DD0117 /* UserLoginTests.swift */,
+				033AF4851F31BD1800DD0117 /* UserRegisterTests.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
 		03A248A91F31938A007A7B51 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,7 +344,11 @@
 		03D44E2D1F31028C00A8CA74 /* mobile-ui-testing-iosUITests */ = {
 			isa = PBXGroup;
 			children = (
-				03D44E2E1F31028C00A8CA74 /* mobile_ui_testing_iosUITests.swift */,
+				033AF4821F31BCF000DD0117 /* User */,
+				033AF4811F31BCE800DD0117 /* Note */,
+				033AF4801F31BCE000DD0117 /* Model */,
+				033AF47F1F31BCD500DD0117 /* Helpers */,
+				039893001F31BFBB000A2EF1 /* data.plist */,
 				03D44E301F31028C00A8CA74 /* Info.plist */,
 			);
 			path = "mobile-ui-testing-iosUITests";
@@ -412,6 +480,7 @@
 			knownRegions = (
 				Base,
 				ja,
+				en,
 			);
 			mainGroup = 03D44E021F31028C00A8CA74;
 			productRefGroup = 03D44E0C1F31028C00A8CA74 /* Products */;
@@ -444,6 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				033AB3411F310C4300BA737D /* GoogleService-Info.plist in Resources */,
+				032B9DC71F31D14F003E0ED8 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +521,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				039893011F31BFBB000A2EF1 /* data.plist in Resources */,
+				032B9DC61F31D14E003E0ED8 /* Localizable.strings in Resources */,
 				033AB3421F310C4300BA737D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,7 +722,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03D44E2F1F31028C00A8CA74 /* mobile_ui_testing_iosUITests.swift in Sources */,
+				033AF4841F31BCFD00DD0117 /* UserLoginTests.swift in Sources */,
+				033AF4981F31BD8000DD0117 /* XCUIElement+extension.swift in Sources */,
+				033AF4861F31BD1800DD0117 /* UserRegisterTests.swift in Sources */,
+				033AF4921F31BD6500DD0117 /* Functions.swift in Sources */,
+				033AF4961F31BD7700DD0117 /* XCTestCase+helper.swift in Sources */,
+				033AF48C1F31BD3900DD0117 /* User.swift in Sources */,
+				033AF48E1F31BD4400DD0117 /* Constants.swift in Sources */,
+				033AF4901F31BD4D00DD0117 /* ElementAccessor.swift in Sources */,
+				033AF48A1F31BD2D00DD0117 /* NoteLogoutStateTests.swift in Sources */,
+				033AF4941F31BD6E00DD0117 /* XCTestCase+extension.swift in Sources */,
+				033AF4881F31BD2400DD0117 /* NoteLoginStateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,6 +757,7 @@
 			children = (
 				03A248DF1F31A25D007A7B51 /* Base */,
 				03A248E11F31A29E007A7B51 /* ja */,
+				032B9DC81F31D354003E0ED8 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

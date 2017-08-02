@@ -1,0 +1,32 @@
+// User tab
+"login" = "Login";
+"logout" = "Logout";
+"nickname" = "Nickname";
+"email" = "E-mail";
+"password" = "Password";
+"register" = "Register";
+"error" = "Error";
+
+// Note tab
+"unauthorized" = "Please login first";
+"title" = "Title";
+"content" = "Content";
+"save" = "Save";
+"create" = "Create";
+
+// --- Error Section ---
+
+// Item validation
+"error_required" = "Required";
+"error_invalid_email" = "Invalid Email Address";
+"error_invalid_password" = "At Least 6 Characters";
+
+// Login
+"error_login_failed" = "Login failed.";
+"error_login_userDisabled" = "Account is disabled.";
+"error_login_wrongPassword" = "Email or password is incorrect.";
+
+// Signup
+"error_register_failed" = "Signup failed.";
+"error_used_email" = "Email is already used.";
+"error_register_weakPassword" = "Password is too weak.";
