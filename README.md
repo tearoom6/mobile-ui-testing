@@ -74,7 +74,7 @@ $ bundle install --path vendor/bundle
 以下のコマンドでapkファイルが作成されます。
 
 ```bash
-$ bundle exec fastlane build
+$ bundle exec fastlane android build
 ```
 
 `app/build/outputs/apk/`以下に2つのapkファイルが出来ます。
@@ -86,7 +86,7 @@ $ bundle exec fastlane build
 以下のコマンドでUIテストが実行されます。
 
 ```bash
-$ bundle exec fastlane ui_test
+$ bundle exec fastlane android ui_test
 ```
 
 事前にエミュレーターの起動、または実機を接続しておいてください。
@@ -146,7 +146,7 @@ $ carthage update --platform iOS
 ipaファイルの作成は以下のコマンドでおこなえます。
 
 ```bash
-$ bundle exec fastlane build
+$ bundle exec fastlane ios build
 ```
 
 `apps/autotest-sample.ipa` が生成されます
@@ -155,11 +155,16 @@ $ bundle exec fastlane build
 以下のコマンドでiOSシミュレータを使ったUIテストが実行されます。
 
 ```bash
-$ bundle exec fastlane simulator_ui_test
+$ bundle exec fastlane ios simulator_ui_test
 ```
 
 実行するiOSシミュレータの予測変換をオフにしておくのが良いです。
 
+デバイスを指定する場合は以下のように実行します。
+
+```bash
+$ bundle exec fastlane ios ui_test_without_building device:"iPhone 5s"
+```
 
 ## Appium + RSpec(5章)
 ### ディレクトリの用意
@@ -260,6 +265,13 @@ iOS実機のみ
 
 デフォルト値などについては、`spec/support/helpers/(android|ios)/config_helper.rb`を確認してください。
 
+以下のように実行します。
+
+```bash
+$ PLATFORM=android APP_PATH=apps/app-debug.apk bundle exec rspec spec/scenario_spec.rb
+
+$ PLATFORM=ios UDID=auto TEAM_ID=MZQZM76GFP APP_PATH=apps/mobile-ui-testing-ios.ipa bundle exec rspec spec/scenario_spec.rb
+```
 
 ## 今後のテストについて
 ### 既存テストコードの改良
