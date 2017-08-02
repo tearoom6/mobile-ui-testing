@@ -1,0 +1,7 @@
+packagename: "biz.tearoom6.mobile_ui_testing_android"
+
+user:
+  email: "test@example.com"
+  password: "password"
+  nickname: "テスター"
+
