@@ -1,0 +1,32 @@
+// User tab
+"login" = "ログイン";
+"logout" = "ログアウト";
+"nickname" = "Nickname";
+"email" = "E-mail";
+"password" = "Password";
+"register" = "ユーザ登録";
+"error" = "エラー";
+
+// Note tab
+"unauthorized" = "ログインしてください";
+"title" = "タイトル";
+"content" = "内容";
+"save" = "保存";
+"create" = "作成";
+
+// --- Error Section ---
+
+// Item validation
+"error_required" = "必須です";
+"error_invalid_email" = "無効なメールアドレスです";
+"error_invalid_password" = "6文字以上にしてください";
+
+// Login
+"error_login_failed" = "ログインに失敗しました。";
+"error_login_userDisabled" = "アカウントが無効です。";
+"error_login_wrongPassword" = "メールアドレスまたはパスワードが間違っています。";
+
+// Signup
+"error_register_failed" = "ユーザ登録に失敗しました。";
+"error_used_email" = "既にメールアドレスは使用されています。";
+"error_register_weakPassword" = "パスワードが弱すぎます。";
