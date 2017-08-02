@@ -4,6 +4,7 @@ rvm:
   - 2.4.1
 env:
   - TARGET_DANGERFILE="mobile-ui-testing-android/Dangerfile"
+  - TARGET_DANGERFILE="mobile-ui-testing-ios/Dangerfile"
 cache:
   - bundler
 before_script:
