@@ -25,6 +25,7 @@ xcuserdata/
 ## Obj-C/Swift specific
 *.hmap
 *.ipa
+*.app
 *.dSYM.zip
 *.dSYM
 
@@ -60,7 +61,10 @@ Carthage/Build
 # For more information about the recommended setup visit:
 # https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md
 
+fastlane/README.md
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
+fastlane/build_output
 fastlane/test_output
+fastlane/test_report
